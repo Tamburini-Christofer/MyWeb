@@ -16,7 +16,6 @@ li{
 body{
     font-family: "Roboto Mono", Arial, Helvetica, sans-serif;
     background-color: black;
-
 }
 
 .containerHeader{
@@ -35,4 +34,79 @@ body{
 
 .containerHeader img{
     max-width:5%;
+}
+
+.containerCard{
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.card{
+    height: 500px;
+    width: 20%;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+.card h2{
+    text-align: center;
+    color: white;   
+    margin: 10px 0;
+}
+
+.card img{
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.card ul li{
+    text-align: center;
+    margin: 15px 0;
+    color: white;
+}
+.card ul li:nth-child(6):hover{
+    color: grey;
+}
+.WebDev {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+
+  /* Gradiente verticale con tutti i colori delle tecnologie */
+  background: linear-gradient(
+    to bottom,
+    #e44d26 0%,    /* HTML */
+    #e44d26 16%, 
+    #2965f1 16%,   /* CSS */
+    #2965f1 32%,
+    #f7df1e 32%,   /* JavaScript */
+    #f7df1e 48%,
+    #61dafb 48%,   /* React */
+    #61dafb 64%,
+    #68a063 64%,   /* Node */
+    #68a063 80%,
+    #00758f 80%,   /* MySQL */
+    #00758f 100%
+  );
+
+  background-size: 100% 300%;
+  animation: techFlow 40s ease-in-out infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+}
+
+@keyframes techFlow {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 -100%;
+  }
 }
