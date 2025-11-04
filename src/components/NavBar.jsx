@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
+
 const linkPage = [
   { route: "/", label: "Home" },
   { route: "/WebDeveloper", label: "Web Developer" },
