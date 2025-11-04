@@ -19,9 +19,6 @@ body{
 }
 
 .containerHeader{
-  position: fixed;
-  left: 0%;
-  right: 0;
     font-size: 24px;
     width: 90%;
     margin: 0 auto;
@@ -82,7 +79,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   width: 80%;
   margin: 0 auto;
   color: black;
@@ -99,4 +96,101 @@ body{
   padding: 20px;
   border-radius: 0px 30px 30px 0;
   width: 400px;
+}
+
+/***********************************/
+/* Photography */
+.containerPhoto{
+  height: 80vh;
+
+}
+.list {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  background: #000;
+  transform-style: preserve-3d;
+  perspective: 1400px; /* profondità camera */
+}
+
+.item-wrapper {
+  position: absolute;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.item-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.item-wrapper:hover .item-img {
+  transform: scale(1.05);
+}
+
+.item-wrapper.clicked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  animation: fadeOverlay 0.4s forwards;
+  z-index: 5;
+}
+
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gridscan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gridscan__preview {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 220px;
+  height: 132px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  background: #000;
+  color: #fff;
+  font:
+    12px/1.2 system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  pointer-events: none;
+}
+
+.gridscan__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.gridscan__badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
 }

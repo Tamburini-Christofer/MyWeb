@@ -16,10 +16,6 @@ const NavBar = () => {
       <div className="containerHeader">
         <nav>
           <ul>
-            <img
-              src="/public/chris_watermark_bianco.png"
-              alt="Logo Christofer Tamburini"
-            />
             {linkPage.map((link, i) => (
               <li key={i}>
                 <NavLink
