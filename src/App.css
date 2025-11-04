@@ -36,7 +36,7 @@ body{
     max-width:5%;
 }
 
-.containerCard{
+.containerWebDeveloper{
     display: flex;
     gap: 20px;
     width: 90%;
@@ -44,35 +44,7 @@ body{
     margin: 0 auto;
 }
 
-.card{
-    height: 500px;
-    width: 20%;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 40px 0;
-}
-
-.card h2{
-    text-align: center;
-    color: white;   
-    margin: 10px 0;
-}
-
-.card img{
-    max-width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-}
-
-.card ul li{
-    text-align: center;
-    margin: 15px 0;
-    color: white;
-}
-.card ul li:nth-child(6):hover{
-    color: grey;
-}
-.WebDev {
+/* .WebDev {
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -109,4 +81,4 @@ body{
   100% {
     background-position: 0 -100%;
   }
-}
+} */

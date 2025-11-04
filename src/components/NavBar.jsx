@@ -2,7 +2,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const linkPage = [
   { route: "/", label: "Home" },
-  { route: "/ChiSono", label: "Chi sono" },
+  { route: "/WebDeveloper", label: "Web Developer" },
+  { route: "/Blender", label: "Blender" },
+  { route: "/Photography", label: "Photography" },
+  { route: "/Videodrone", label: "Videodrone" },
+  { route: "/Stampa", label: "Stampe 3D" },
 ];
 
 const NavBar = () => {
