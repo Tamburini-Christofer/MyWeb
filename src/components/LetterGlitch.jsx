@@ -1,3 +1,9 @@
+/**
+ * LetterGlitch.jsx
+ * Componente che crea un effetto glitch matrix-style con caratteri casuali
+ * Supporta vignette, colori personalizzati e transizioni smooth
+ */
+
 import { useRef, useEffect } from 'react';
 
 const LetterGlitch = ({
@@ -18,22 +24,26 @@ const LetterGlitch = ({
 
   const lettersAndSymbols = Array.from(characters);
 
+  // Configurazione caratteri
   const fontSize = 12;
   const charWidth = 10;
   const charHeight = 20;
 
+  // Genera un carattere casuale
   const getRandomChar = () => {
     return lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
   };
 
+  // Genera un colore casuale dalla palette
   const getRandomColor = () => {
     return glitchColors[Math.floor(Math.random() * glitchColors.length)];
   };
 
+  // Converte hex in RGB per interpolazione
   const hexToRgb = hex => {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, (m, r, g, b) => {
-      return e + r + g + g + b + b;
+      return r + r + g + g + b + b;
     });
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -46,6 +56,7 @@ const LetterGlitch = ({
       : null;
   };
 
+  // Interpola tra due colori RGB
   const interpolateColor = (start, end, factor) => {
     const result = {
       r: Math.round(start.r + (end.r - start.r) * factor),
@@ -55,12 +66,14 @@ const LetterGlitch = ({
     return `rgb(${result.r}, ${result.g}, ${result.b})`;
   };
 
+  // Calcola la griglia di caratteri in base alle dimensioni
   const calculateGrid = (width, height) => {
     const columns = Math.ceil(width / charWidth);
     const rows = Math.ceil(height / charHeight);
     return { columns, rows };
   };
 
+  // Inizializza l'array di lettere con caratteri e colori casuali
   const initializeLetters = (columns, rows) => {
     grid.current = { columns, rows };
     const totalLetters = columns * rows;
@@ -72,6 +85,7 @@ const LetterGlitch = ({
     }));
   };
 
+  // Ridimensiona il canvas mantenendo la qualità su schermi retina
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -97,6 +111,7 @@ const LetterGlitch = ({
     drawLetters();
   };
 
+  // Disegna tutti i caratteri sul canvas
   const drawLetters = () => {
     if (!context.current || letters.current.length === 0) return;
     const ctx = context.current;
@@ -113,9 +128,11 @@ const LetterGlitch = ({
     });
   };
 
+  // Aggiorna caratteri casuali per creare l'effetto glitch
   const updateLetters = () => {
     if (!letters.current || letters.current.length === 0) return;
 
+    // Aggiorna il 5% dei caratteri ad ogni frame
     const updateCount = Math.max(1, Math.floor(letters.current.length * 0.05));
 
     for (let i = 0; i < updateCount; i++) {
@@ -134,6 +151,7 @@ const LetterGlitch = ({
     }
   };
 
+  // Gestisce le transizioni smooth tra i colori
   const handleSmoothTransitions = () => {
     let needsRedraw = false;
     letters.current.forEach(letter => {
@@ -155,6 +173,7 @@ const LetterGlitch = ({
     }
   };
 
+  // Loop di animazione principale
   const animate = () => {
     const now = Date.now();
     if (now - lastGlitchTime.current >= glitchSpeed) {
@@ -170,6 +189,7 @@ const LetterGlitch = ({
     animationRef.current = requestAnimationFrame(animate);
   };
 
+  // Setup canvas e gestione resize
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -180,6 +200,7 @@ const LetterGlitch = ({
 
     let resizeTimeout;
 
+    // Debounce del resize per performance
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
@@ -198,6 +219,7 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
+  // Stili CSS-in-JS
   const containerStyle = {
     position: 'relative',
     width: '100%',
@@ -208,16 +230,16 @@ const LetterGlitch = ({
 
   const canvasStyle = {
     display: 'block',
-    width: '100%',
-    height: '100%'
+    width: '102vw',
+    height: '88vh',
   };
 
   const outerVignetteStyle = {
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
+    width: '100vw',
+    height: '100vh',
     pointerEvents: 'none',
     background: 'radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%)'
   };

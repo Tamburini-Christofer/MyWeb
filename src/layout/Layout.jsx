@@ -1,23 +1,26 @@
+/**
+ * Layout.jsx
+ * Layout principale con header, footer e contenuto dinamico
+ */
+
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-
 const Layout = () => {
-    return( 
-        <>
-        <header>
-            <NavBar /> 
-        </header>
-        <main>
-            <Outlet />
-        </main>
-        <footer>
-            <Footer />
-        </footer>
-        
-        </>
-    )
-}
+  return (
+    <>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  );
+};
 
 export default Layout;

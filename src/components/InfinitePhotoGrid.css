@@ -1,0 +1,193 @@
+/**
+ * InfinitePhotoGrid.css
+ * Stili per la griglia fotografica infinita e lightbox
+ */
+
+/* Container principale con overflow hidden per loop infinito */
+.infinite-photo-grid-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+}
+
+/* Griglia responsive con transform per animazione */
+.infinite-photo-grid {
+  display: grid;
+  width: 100%;
+  will-change: transform;
+}
+
+/* Item singola foto con aspect ratio fisso */
+.photo-item {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Vignette gradient per effetto fade in/out */
+.infinite-photo-grid-wrapper::before,
+.infinite-photo-grid-wrapper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.infinite-photo-grid-wrapper::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.infinite-photo-grid-wrapper::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* === LIGHTBOX/OVERLAY === */
+
+/* Overlay fullscreen con sfondo semi-trasparente */
+.photo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Immagine ingrandita nel lightbox */
+.overlay-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: default;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pulsante chiusura X in alto a destra */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 10px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  transform: rotate(90deg);
+}
+
+/* Pulsanti navigazione foto (frecce sinistra/destra) */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 60px;
+  cursor: pointer;
+  padding: 20px 15px;
+  line-height: 1;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Posizionamento frecce */
+.nav-prev {
+  left: 20px;
+}
+
+.nav-next {
+  right: 20px;
+}
+
+/* Contatore foto (1/12) in alto al centro */
+.photo-counter {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Caption/descrizione foto in basso */
+.overlay-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 4px;
+  max-width: 80%;
+  text-align: center;
+}

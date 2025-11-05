@@ -1,0 +1,265 @@
+/**
+ * Blender.css
+ * Stili per la pagina Blender 3D
+ */
+
+/* === LAYOUT PRINCIPALE === */
+.blender-page {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  overflow-x: hidden;
+}
+
+/* Sfondo con palline */
+.ballpit-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Contenuto sopra lo sfondo */
+.blender-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* === HERO SECTION === */
+.blender-page .hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.blender-icon-hero {
+  font-size: 5rem;
+  color: #E87D0D;
+  margin-bottom: 1rem;
+  animation: floatBlender 3s ease-in-out infinite;
+}
+
+@keyframes floatBlender {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.blender-page .main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #E87D0D 0%, #265787 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blender-page .subtitle {
+  font-size: 1.25rem;
+  color: #a0a0a0;
+  margin: 0;
+  font-weight: 300;
+}
+
+.blender-page .hero-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #E87D0D 0%, #265787 100%);
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/* === SKILLS CONTAINER === */
+.blender-page .skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Categoria skill */
+.blender-page .skill-category {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(232, 125, 13, 0.22);
+  border-radius: 16px;
+  padding: 1.5rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.blender-page .category-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blender-page .category-title::before {
+  content: '';
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(135deg, #E87D0D 0%, #265787 100%);
+  border-radius: 2px;
+}
+
+/* Griglia skills */
+.blender-page .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+/* Card singola skill */
+.blender-page .skill-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.blender-page .skill-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--skill-color, #E87D0D);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(232, 125, 13, 0.3);
+}
+
+.blender-page .skill-icon {
+  font-size: 2.5rem;
+  color: var(--skill-color, #E87D0D);
+  transition: transform 0.3s ease;
+}
+
+.blender-page .skill-card:hover .skill-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.blender-page .skill-name {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* === PROJECTS SECTION === */
+.projects-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(232, 125, 13, 0.25);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  background: rgba(232, 125, 13, 0.1);
+  border: 1px solid rgba(232, 125, 13, 0.32);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(232, 125, 13, 0.12);
+}
+
+.project-card:hover {
+  background: rgba(232, 125, 13, 0.15);
+  border-color: #E87D0D;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(232, 125, 13, 0.2);
+}
+
+.project-title {
+  font-size: 1.2rem;
+  color: #E87D0D;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.project-description {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .blender-content {
+    padding: 2rem 1rem;
+  }
+
+  .blender-page .hero-section {
+    margin-bottom: 2rem;
+  }
+
+  .blender-icon-hero {
+    font-size: 3.5rem;
+  }
+
+  .blender-page .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .blender-page .skill-category {
+    padding: 1rem;
+  }
+
+  .blender-page .category-title {
+    font-size: 1.25rem;
+  }
+
+  .blender-page .skill-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .blender-page .skill-icon {
+    font-size: 2rem;
+  }
+
+  .projects-section {
+    padding: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .blender-page .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blender-page .main-title {
+    font-size: 2rem;
+  }
+
+  .blender-page .subtitle {
+    font-size: 1rem;
+  }
+}
