@@ -1,0 +1,432 @@
+/**
+ * ============================================
+ * HOME PAGE STYLES
+ * ============================================
+ * Stili minimalisti ed eleganti per la pagina Home
+ * Include: Welcome section, Scroll arrow, About section
+ */
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+.home-page {
+  min-height: 100vh;
+  background: #0a0a0a; /* Nero puro per massimo contrasto */
+}
+
+/* ============================================
+   WELCOME SECTION
+   ============================================ */
+
+.containerHome {
+  padding: 2rem 1rem 1rem;
+}
+
+.home-welcome-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive: min 1.5rem, max 2.5rem */
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   SCROLL ARROW (Triangolare)
+   ============================================ */
+
+.scroll-arrow {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  animation: bounce 2s infinite; /* Animazione rimbalzo continuo */
+}
+
+/* Freccia triangolare creata con tecnica CSS border */
+.arrow-down {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 28px solid rgba(102, 84, 204, 0.8); /* Colore viola primario */
+  transition: all 0.3s ease;
+}
+
+/* Hover effect sulla freccia */
+.scroll-arrow:hover .arrow-down {
+  border-top-color: #6654ccff; /* Colore pieno al passaggio del mouse */
+  transform: translateY(3px); /* Leggero spostamento verso il basso */
+}
+
+/* Animazione rimbalzo per la freccia */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px); /* Rimbalzo verso l'alto */
+  }
+  60% {
+    transform: translateY(-4px); /* Rimbalzo intermedio */
+  }
+}
+
+/* Smooth scroll per navigazione con anchor */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about-section {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); /* Gradiente nero-blu scuro */
+  padding: 4rem 1rem;
+  min-height: 100vh;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Titolo About con sottotitolo decorativo */
+.about-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 200;
+  text-align: center;
+  color: #fff;
+  margin: 0 0 3rem 0;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+/* Linea decorativa sotto il titolo */
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6654ccff, transparent);
+}
+
+/* ============================================
+   INFO CARDS GRID
+   ============================================ */
+
+/* Griglia a 3 colonne per le info cards */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr)); /* 3 colonne responsive */
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Cards che occupano 2 colonne (66% larghezza) */
+.personal-info-card,
+.education-card,
+.skills-card {
+  grid-column: span 2; /* Occupano 2 delle 3 colonne per asimmetria elegante */
+}
+
+/* ============================================
+   INFO CARD BASE STYLES
+   ============================================ */
+
+.info-card {
+  background: rgba(255, 255, 255, 0.03); /* Sfondo semi-trasparente */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px); /* Effetto glassmorphism */
+  backdrop-filter: blur(10px);
+}
+
+/* Hover effect sulle cards */
+.info-card:hover {
+  border-color: rgba(102, 84, 204, 0.4); /* Bordo viola al passaggio */
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px); /* Sollevamento leggero */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Ombra profonda */
+}
+
+/* Titoli delle cards */
+.info-card h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #6654ccff; /* Viola primario */
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   PERSONAL INFORMATION GRID
+   ============================================ */
+
+/* Griglia 2x2 per le informazioni personali */
+.personal-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonne uguali */
+  gap: 1.5rem 2rem; /* Gap verticale 1.5rem, orizzontale 2rem */
+}
+
+/* Singolo item informativo */
+.info-item {
+  display: flex;
+  flex-direction: column; /* Label sopra, valore sotto */
+  gap: 0.5rem;
+  padding: 0;
+  border-bottom: none;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+/* Label (es. "NAME:", "EMAIL:") */
+.info-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5); /* Grigio chiaro al 50% */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Valore dell'informazione */
+.info-value {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.95); /* Bianco quasi pieno */
+  font-weight: 400;
+  line-height: 1.5;
+  word-break: break-word; /* Permette wrapping di email lunghe */
+}
+
+/* ============================================
+   WORK EXPERIENCE SECTION
+   ============================================ */
+
+.work-entry {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separatore sottile */
+}
+
+.work-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Titolo del lavoro (es. "Assistant Store Manager") */
+.work-title {
+  font-size: 1.05rem;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+/* Nome azienda */
+.work-company {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.3rem;
+}
+
+/* Periodo lavorativo */
+.work-period {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* ============================================
+   EDUCATION SECTION
+   ============================================ */
+
+.education-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.education-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Titolo corso di studi */
+.edu-title {
+  font-size: 1.05rem;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+/* Nome istituto */
+.edu-school {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.3rem;
+}
+
+/* Status corso (es. "In Progress", "Completed") */
+.edu-status {
+  font-size: 0.85rem;
+  color: #6654ccff; /* Viola per evidenziare status */
+  font-weight: 500;
+}
+
+/* ============================================
+   PASSIONS SECTION
+   ============================================ */
+
+.passions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Tag passione con emoji */
+.passion-tag {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: rgba(102, 84, 204, 0.1); /* Sfondo viola tenue */
+  border: 1px solid rgba(102, 84, 204, 0.3);
+  border-radius: 20px; /* Bordi molto arrotondati */
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Hover effect sui tag passioni */
+.passion-tag:hover {
+  background: rgba(102, 84, 204, 0.2);
+  border-color: #6654ccff;
+  transform: translateY(-2px); /* Leggero sollevamento */
+}
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Singola skill */
+.skills-list li {
+  padding: 0.75rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 1.5rem; /* Spazio per la freccia */
+}
+
+.skills-list li:last-child {
+  border-bottom: none;
+}
+
+/* Freccia decorativa prima di ogni skill */
+.skills-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: #6654ccff; /* Viola primario */
+  font-size: 1.2rem;
+}
+
+/* Hover effect sulle skills */
+.skills-list li:hover {
+  color: #fff;
+  padding-left: 2rem; /* Indentazione maggiore al passaggio */
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (max-width: 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 3rem 1rem; /* Riduco padding verticale */
+  }
+
+  /* Griglia diventa a singola colonna */
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Tutte le cards tornano a larghezza piena */
+  .personal-info-card,
+  .education-card,
+  .skills-card {
+    grid-column: span 1;
+  }
+
+  /* Personal info diventa singola colonna */
+  .personal-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .info-item {
+    gap: 0.35rem;
+  }
+
+  .info-label {
+    font-size: 0.8rem;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+  .home-welcome-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-title {
+    margin-bottom: 2rem;
+  }
+
+  .info-card {
+    padding: 1.25rem; /* Padding ridotto per schermi piccoli */
+  }
+
+  .passions-list {
+    gap: 0.5rem;
+  }
+
+  /* Tag passioni più piccoli su mobile */
+  .passion-tag {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.85rem;
+  }
+}

@@ -4,7 +4,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import './InfiniteHorizontalCarousel.css';
+import '../styles/components/InfiniteHorizontalCarousel.css';
 
 const InfiniteHorizontalCarousel = ({ images = [], speed = 0.5, height = 120, gap = 12 }) => {
   const trackRef = useRef(null);

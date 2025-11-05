@@ -6,7 +6,7 @@
 import { useState } from 'react';
 import { SiYoutube } from 'react-icons/si';
 import { TbDrone } from 'react-icons/tb';
-import './Videodrone.css';
+import '../styles/pages/Videodrone.css';
 
 const Videodrone = () => {
   const [isHovering, setIsHovering] = useState(false);

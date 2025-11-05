@@ -4,7 +4,7 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useSt
 import { motion, AnimatePresence } from "framer-motion";
 
 
-import '../App.css';
+import '../styles/App.css';
 
 function cn(...classes) {
   return classes.filter(Boolean).join(' ');

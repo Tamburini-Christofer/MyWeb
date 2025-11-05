@@ -5,7 +5,7 @@
  */
 
 import { useState } from 'react';
-import './Stampa.css';
+import '../styles/pages/Stampa.css';
 
 const Stampa = () => {
   // State to track which section is expanded (null, 'filament', or 'resin')

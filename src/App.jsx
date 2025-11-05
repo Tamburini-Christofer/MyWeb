@@ -12,7 +12,7 @@ import Photography from "./pages/ChristoferPhotography";
 import Videodrone from "./pages/Videodrone";
 import Stampa from "./pages/Stampa";
 import Contact from "./pages/Contact";
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

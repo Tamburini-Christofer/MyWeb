@@ -3,7 +3,7 @@
  * Pagina Web Developer - Portfolio competenze Boolean Careers
  */
 
-import './WebDeveloper.css';
+import '../styles/pages/WebDeveloper.css';
 import LetterGlitch from "../components/LetterGlitch";
 import { 
   SiHtml5, SiCss3, SiJavascript, SiReact, SiVite,

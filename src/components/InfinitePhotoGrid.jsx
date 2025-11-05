@@ -9,7 +9,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import './InfinitePhotoGrid.css';
+import '../styles/components/InfinitePhotoGrid.css';
 
 const InfinitePhotoGrid = ({ 
   images = [], 

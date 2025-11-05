@@ -3,7 +3,7 @@
  * Pagina portfolio competenze Blender 3D
  */
 
-import './Blender.css';
+import '../styles/pages/Blender.css';
 import Ballpit from '../components/Ballpit';
 import { 
   SiBlender,

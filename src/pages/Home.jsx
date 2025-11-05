@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import RotatingText from "../components/RotatingText";
-import './Home.css';
+import '../styles/pages/Home.css';
 
 const Home = () => {
   // Palette di colori per lo sfondo rotante
@@ -72,7 +72,7 @@ const Home = () => {
                 </div>
                 <div className="info-item">
                   <span className="info-label">Born</span>
-                  <span className="info-value">1992</span>
+                  <span className="info-value">09/05/1992</span>
                 </div>
                 <div className="info-item">
                   <span className="info-label">Phone</span>

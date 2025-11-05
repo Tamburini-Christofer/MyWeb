@@ -3,7 +3,7 @@
  * Photography portfolio layout with hero carousel, Photoshop skill, and genre gallery
  */
 
-import './ChristoferPhotography.css';
+import '../styles/pages/ChristoferPhotography.css';
 import InfinitePhotoGrid from '../components/InfinitePhotoGrid';
 import { SiAdobephotoshop, SiAdobelightroom } from 'react-icons/si';
 

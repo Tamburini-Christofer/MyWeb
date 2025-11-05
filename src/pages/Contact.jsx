@@ -11,7 +11,7 @@ import {
   SiWhatsapp 
 } from 'react-icons/si';
 import { TbMapPin, TbPhone, TbBrandTelegram } from 'react-icons/tb';
-import './Contact.css';
+import '../styles/pages/Contact.css';
 
 const Contact = () => {
   const contactInfo = [
